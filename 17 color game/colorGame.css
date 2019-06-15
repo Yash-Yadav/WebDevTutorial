@@ -6,4 +6,5 @@ body {
     width: 30%;
     background: purple;
     padding-bottom: 30%;
+    float: left;
 }
