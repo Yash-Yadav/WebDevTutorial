@@ -1,0 +1,9 @@
+body {
+    background-color:   blue;
+}
+
+.square {
+    width: 30%;
+    background: purple;
+    padding-bottom: 30%;
+}
