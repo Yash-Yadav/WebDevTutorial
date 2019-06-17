@@ -1,53 +1,94 @@
-var colors = generateRandomColors(6);
+var numOfSquares = 6;
+var colors = [];
+var pickedColor;
 
 var squares = document.querySelectorAll(".square");
-var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
+var modeBtns = document.querySelectorAll(".mode");
 
-resetButton.addEventListener("click", function(){
+init();
+function init()
+{
+    //Mode button EventListners
+    for(var i=0; i<modeBtns.length; i++)
+    {
+        modeBtns[i].addEventListener('click', function(){
+        modeBtns[0].classList.remove("selected");
+        modeBtns[1].classList.remove("selected");
+        
+        this.classList.add("selected");
+        this.textContent === "Easy" ? numOfSquares = 3: numOfSquares = 6;
+        reset();
+        });
+    }
+
+
+    for(var i=0; i<squares.length; i++)
+    {
+        //Add initial Colors
+        //Add click listeners to squares
+        squares[i].addEventListener("click",function(){
+            //Grab Color of the Clicked Square
+            var clickedColor = this.style.backgroundColor;
+            //Compare the COlor to pickedColor
+            console.log(clickedColor+pickedColor);
+            if(clickedColor === pickedColor)
+            {
+                messageDisplay.textContent = "Correct!";
+                changeColors(clickedColor);
+                h1.style.backgroundColor = clickedColor;
+                resetButton.textContent = "Play Again?";
+            }
+            else
+            {
+                this.style.backgroundColor="#232323";
+                messageDisplay.textContent = "Try Again";
+            }
+        });
+    }
+    reset();
+}
+
+
+function reset()
+{
     //generate all new Colors
-    colors = generateRandomColors(6);
+    colors = generateRandomColors(numOfSquares);
     //Pick a new random Color from array
     pickedColor = pickColor();
     //change color display to match picked color
     colorDisplay.textContent = pickedColor;
+
+    resetButton.textContent = "NewColors";
+    messageDisplay.textContent = "";
+
     //change colors of squares
     for(var i=0; i<squares.length; i++)
-        squares[i].style.backgroundColor=colors[i];
-    h1.style.backgroundColor = "#232323";
-    resetButton.textContent = "New Color";
+    {
+        if(colors[i])
+        {
+            squares[i].style.backgroundColor=colors[i];
+            squares[i].style.display = "block";
+        }
+        else
+            squares[i].style.display = "none";
+    }
+    h1.style.backgroundColor = "steelblue";
+}
+
+resetButton.addEventListener("click", function(){
+    //generate all new Colors
+    //Pick a new random Color from array
+    //change color display to match picked color
+    //change colors of squares
+    reset();
 })
 
 colorDisplay.textContent = pickedColor;
 
-for(var i=0; i<squares.length; i++)
-{
-    //Add initial Colors
-    squares[i].style    .backgroundColor=colors[i]
-
-    //Add click listeners to squares
-    squares[i].addEventListener("click",function(){
-        //Grab Color of the Clicked Square
-        var clickedColor = this.style.backgroundColor;
-        //Compare the COlor to pickedColor
-        console.log(clickedColor+pickedColor);
-        if(clickedColor === pickedColor)
-        {
-            messageDisplay.textContent = "Correct!";
-            changeColors(clickedColor);
-            h1.style.backgroundColor = clickedColor;
-            resetButton.textContent = "Play Again?";
-        }
-        else
-        {
-            this.style.backgroundColor="#232323";
-            messageDisplay.textContent = "Try Again";
-        }
-    });
-}
 
 function changeColors(color)
 {
@@ -61,7 +102,7 @@ function changeColors(color)
 //Create Random Color
 function pickColor()
 {
-    var random = Math.floor(Math.random() * 6 +1);
+    var random = Math.floor(Math.random() * 6 + 1);
     return colors[random];
 }
 
@@ -71,7 +112,7 @@ function generateRandomColors(num)
     //make an array
     var arr = [];
     //add num random colors to array
-    for(var i=0; i<=num; i++)   //repeat num times
+    for(var i=1; i<=num; i++)   //repeat num times
     {
         //get random colors and push into arr
         arr.push(randomColor());
