@@ -13,6 +13,15 @@ init();
 function init()
 {
     //Mode button EventListners
+    setupModeButtons();
+
+    setupSquares();
+    
+    reset();
+}
+
+function setupModeButtons()
+{
     for(var i=0; i<modeBtns.length; i++)
     {
         modeBtns[i].addEventListener('click', function(){
@@ -24,8 +33,10 @@ function init()
         reset();
         });
     }
+}
 
-
+function setupSquares()
+{
     for(var i=0; i<squares.length; i++)
     {
         //Add initial Colors
@@ -49,9 +60,7 @@ function init()
             }
         });
     }
-    reset();
 }
-
 
 function reset()
 {
