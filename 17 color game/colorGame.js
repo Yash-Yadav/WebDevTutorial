@@ -80,15 +80,12 @@ function reset()
 }
 
 resetButton.addEventListener("click", function(){
+    reset();
     //generate all new Colors
     //Pick a new random Color from array
     //change color display to match picked color
     //change colors of squares
-    reset();
 })
-
-colorDisplay.textContent = pickedColor;
-
 
 function changeColors(color)
 {
