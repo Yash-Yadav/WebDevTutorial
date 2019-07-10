@@ -14,6 +14,8 @@ app.get("/bye", function(req, res) {
 //"/dog" => "MEOW!"
 app.get("/dog", function(req, res) {
   res.send("MEOW!");
+  console.log("Someone made a /dog request");
+  
 })
 
 app.listen(3000, function () {
