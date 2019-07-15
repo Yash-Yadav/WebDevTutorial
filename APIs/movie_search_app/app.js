@@ -8,7 +8,11 @@ app.get("/", function(req, res) {
 });
 
 app.get("/results", function(req,res) {
-  request("http://www.omdbapi.com/?s=Star&apikey=d90ccb36", function (error, response, body) {
+  var query = req.query.searchedItem;
+  var apiKEY = "NULL" // API Key Goes Here
+  var url = "http://www.omdbapi.com/?s=" + query + "&apikey=" + apiKEY;
+  
+  request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var data = JSON.parse(body);
       res.render("results", {data: data});
