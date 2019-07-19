@@ -19,6 +19,7 @@ var data = [
     description: "Lake View..."
   }
 ];
+
 function seedDB() {
   // Remove all Campgrounds
   Campground.remove({}, function(err){
@@ -43,8 +44,13 @@ function seedDB() {
                 console.log(err);
               } else {
                 campground.comments.push(comment);
-                campground.save();
-                console.log("Created a new Comment");                            
+                campground.save( function(err) {
+                  if (err) {
+                    console.log(err);
+                  } else {
+                    console.log("Created a new Comment");                            
+                  }
+                });
               }
             });
         }
