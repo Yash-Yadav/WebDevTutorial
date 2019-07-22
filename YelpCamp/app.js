@@ -95,7 +95,7 @@ app.post("/campgrounds/:id/comments", function(req, res) {
           campground.save();
           res.redirect("/campgrounds/" + campground._id);
         }
-      })
+      });
     }
   });
   // create new Comment
