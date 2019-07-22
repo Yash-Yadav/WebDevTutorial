@@ -6,17 +6,17 @@ var data = [
   {
     name: "Cloud's Rest",
     image: "https://cdn.pixabay.com/photo/2019/06/05/23/48/death-valley-4254871__340.jpg",
-    description: "Deserty Road..."
+    description: "Deserty Road Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo, maxime quibusdam. Ex unde vero commodi voluptatem eos eligendi animi, consectetur delectus illo et at! Veniam neque ab libero vel fugit!"
   },
   {
     name: "Cloud's Rest",
     image: "https://cdn.pixabay.com/photo/2014/03/14/11/17/dancer-287078__340.jpg",
-    description: "WaterFall..."
+    description: "WaterFall Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo, maxime quibusdam. Ex unde vero commodi voluptatem eos eligendi animi, consectetur delectus illo et at! Veniam neque ab libero vel fugit!"
   },
   {
     name: "Cloud's Rest",
     image: "https://cdn.pixabay.com/photo/2019/07/16/11/48/vietnam-4341654__340.jpg",
-    description: "Lake View..."
+    description: "Lake View Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo, maxime quibusdam. Ex unde vero commodi voluptatem eos eligendi animi, consectetur delectus illo et at! Veniam neque ab libero vel fugit!"
   }
 ];
 
