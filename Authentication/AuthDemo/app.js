@@ -58,9 +58,12 @@ app.get("/login", function(req,res) {
 // Middleware
 app.post("/login", passport.authenticate("local", {
   successRedirect: "/secret",
-  failureRedirect: "/login"
+  // successFlash: 'Welcome!',
+  failureRedirect: "/login",
+  // failureFlash: true
 }), function(req, res) {
   // Empty for now...
+  return done(null, req.user);
 });
 
 
