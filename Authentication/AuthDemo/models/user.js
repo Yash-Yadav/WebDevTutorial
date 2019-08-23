@@ -6,6 +6,8 @@ var UserSchema = new mongoose.Schema({
   password: String
 });
 
+// All the methods are added here automatically.
+// eg: serialize & deserialize
 UserSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("User", UserSchema);
