@@ -22,7 +22,7 @@
           <li style="display: inline; padding-left: 10px;"><a href="/register">Sign Up</a></li>
         <% } else { %>
           <!-- Else -->
-          <li style="display: inline; padding-left: 10px;""><a href="#">Signed In As: <% currentUser %></a></li>
+          <li style="display: inline; padding-left: 10px;"><a href="#">Signed In As: <%= currentUser.username %></a></li>
           <li style="display: inline; padding-left: 10px;"><a href="/logout">Sign Out</a></li>
         <% }  %>
       </ul>
