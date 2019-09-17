@@ -1,10 +1,8 @@
+const validator = require('validator')
 const getNotes = require('./notes')
 
 const msg = getNotes()
 
 console.log(msg)
-
-
-// var add = require('./utils.js')
-// const sum = add(4, 12)
-// console.log(sum)
+console.log(validator.isEmail('demo@demo.com'))
+console.log(validator.isURL('www.loremipsum.com'))
