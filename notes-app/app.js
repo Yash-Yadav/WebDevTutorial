@@ -1,8 +1,6 @@
 const validator = require('validator')
 const getNotes = require('./notes')
+const chalk = require('chalk')
 
 const msg = getNotes()
-
-console.log(msg)
-console.log(validator.isEmail('demo@demo.com'))
-console.log(validator.isURL('www.loremipsum.com'))
+console.log(chalk.bold.white.bgGreen(msg))
